@@ -24,14 +24,12 @@ const OUT = join(SRC, "..");
 const DEMO = "https://charlusminus.github.io/ellie-demo/";
 const manifest = JSON.parse(readFileSync(join(OUT, "assets/img/manifest.json"), "utf8"));
 
-const NAV = [
-  ["maisons", "maisons/", "Maisons"],
-  ["agencies", "agencies/", "Agencies"],
-  ["how", "how-it-works/", "How it works"],
-  ["security", "security/", "Security"],
-  ["pilot", "pilot/", "Pilot"],
-  ["about", "about/", "About"]
-];
+// For now the public site is a single landing page (decision of 15/11/2026: not too much information before the
+// product is co-designed with the first agency). The detailed pages wait in _src/drafts/: to publish one again, move it
+// to _src/pages/ and add its entry here, e.g. ["maisons", "maisons/", "Maisons"], ["agencies", "agencies/", "Agencies"],
+// ["how", "how-it-works/", "How it works"], ["security", "security/", "Security"], ["pilot", "pilot/", "Pilot"],
+// ["about", "about/", "About"]. With no entry, the header shows only the logo and the call to action.
+const NAV = [];
 
 const LOGO = '<svg viewBox="0 0 1013 146" fill="currentColor" aria-hidden="true" focusable="false"><rect x="0" y="0" width="130.5" height="12.5"/><rect x="0" y="0" width="12.5" height="60"/><path d="M114.5 66H30A30 30 0 0 0 0 96V146H12.5V96A17.5 17.5 0 0 1 30 78.5H114.5Z"/><rect x="0" y="133.5" width="130.5" height="12.5"/><rect x="267" y="0" width="12.5" height="146"/><rect x="267" y="133.5" width="92.5" height="12.5"/><rect x="499" y="0" width="12.5" height="146"/><rect x="499" y="133.5" width="92" height="12.5"/><rect x="737.5" y="0" width="12.5" height="146"/><rect x="905" y="0" width="12.5" height="146"/><rect x="905" y="0" width="107.5" height="12.5"/><rect x="905" y="66" width="96.5" height="12.5"/><rect x="905" y="133.5" width="107.5" height="12.5"/></svg>';
 
@@ -91,10 +89,10 @@ ${meta.head || ""}</head>
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="${root}" aria-label="Ellie, home">${LOGO}</a>
-    <button type="button" class="menubtn" aria-expanded="false" aria-controls="nav">Menu</button>
-    <nav class="nav" id="nav" aria-label="Main">
+    ${NAV.length ? '<button type="button" class="menubtn" aria-expanded="false" aria-controls="nav">Menu</button>' : ""}
+    <nav class="nav${NAV.length ? "" : " solo"}" id="nav" aria-label="Main">
       ${nav}
-      <a class="btn primary" href="${root}contact/">Request an introduction</a>
+      <a class="btn primary" href="${root}#contact">Request an introduction</a>
     </nav>
   </div>
 </header>
@@ -105,9 +103,9 @@ ${body}
   <div class="wrap">
     <div class="cols">
       <div class="col"><span class="lockup" role="img" aria-label="Ellie Experience, orchestrate the invisible"></span><span class="muted">Ellie looks after your team, so your team can look after the guests.</span></div>
-      <div class="col"><b>Ellie</b><a href="${root}maisons/">For maisons</a><a href="${root}agencies/">For agencies and DMCs</a><a href="${root}how-it-works/">How it works</a><a href="${root}pilot/">Pilot</a></div>
-      <div class="col"><b>Trust</b><a href="${root}security/">Privacy and security</a><a href="${root}about/">About</a><a href="${root}legal/">Legal notice</a></div>
-      <div class="col"><b>See Ellie</b><a href="{{demo}}?look=a">Interactive demo</a><a href="{{demo}}onboarding/">Onboarding tour</a><a href="${root}contact/">Request an introduction</a></div>
+      <div class="col"><b>See Ellie</b><a href="{{demo}}?look=a">Interactive demo</a><a href="{{demo}}onboarding/">Onboarding tour</a></div>
+      <div class="col"><b>Contact</b><a href="${root}#contact">Request an introduction</a></div>
+      <div class="col"><b>Legal</b><a href="${root}legal/">Legal notice</a></div>
     </div>
     <div class="fine"><span>Ellie Experience, by Strand64, Singapore.</span><span>Guests, cars and figures shown on this site are fictional.</span></div>
   </div>

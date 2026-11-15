@@ -8,8 +8,8 @@ description: Ellie, the shared file for a maison's client events and the agency 
   <div class="wrap split">
     <div class="stack">
       <h1>Ellie looks after your team, so your team can look after the guests.</h1>
-      <p class="lede">Names for the maison, codes for the agency. One shared file for a maison's client events and the agency that delivers them, from the first guest list to the last car.</p>
-      <div class="ctas"><a class="btn primary" href="{{root}}contact/">Request an introduction</a><a class="lnk" href="{{demo}}?look=a">See a day in Ellie</a></div>
+      <p class="lede">The shared file for a maison's client events and the agency that delivers them, from the first booking to the last arrival. Guest names stay with the maison.</p>
+      <div class="ctas"><a class="btn primary" href="#contact">Request an introduction</a><a class="lnk" href="{{demo}}?look=a">See a day in Ellie</a></div>
     </div>
     <figure class="fig tall">{{img:hero-car|A chauffeur's gloved hand on the door of a black car under a hotel porte-cochère at dusk|(max-width: 900px) 100vw, 50vw|eager}}</figure>
   </div>
@@ -19,8 +19,7 @@ description: Ellie, the shared file for a maison's client events and the agency 
   <div class="wrap split mid">
     <div class="stack">
       <h2>One guest, two screens.</h2>
-      <p class="lede">The maison sees its clients by name. The agency sees a code, a tier, a flight and what each guest needs. Everything else is the same file, at the same minute.</p>
-      <p><a class="lnk" href="{{root}}security/">How Ellie keeps a client list private</a></p>
+      <p class="lede">The maison sees its clients by name. The agency sees a code, and everything it needs to deliver. The same file, at the same minute.</p>
     </div>
     {{inc:twin}}
   </div>
@@ -33,47 +32,39 @@ description: Ellie, the shared file for a maison's client events and the agency 
       <article class="side">
         <figure class="fig wide">{{img:maison-viewing|A gloved hand placing an emerald necklace on a velvet tray in a private salon|(max-width: 820px) 100vw, 50vw}}</figure>
         <h3>For maisons</h3>
-        <p>Your clients, exactly as you know them: the guest file, every journey, the programme to approve, and what changed while you were asleep.</p>
-        <p><a class="lnk" href="{{root}}maisons/">Ellie for maisons</a></p>
+        <p>The whole event at a glance, from the first bookings to the moment your first guests arrive, and every guest's journey as it happens.</p>
       </article>
       <article class="side">
         <figure class="fig wide">{{img:agency-desk|Hands on a printed schedule on a desk at night, a city behind the window|(max-width: 820px) 100vw, 50vw}}</figure>
         <h3>For agencies and DMCs</h3>
-        <p>Everything to deliver on one board: the approved programme, every car and driver, the checklists and the day as it happens.</p>
-        <p><a class="lnk" href="{{root}}agencies/">Ellie for agencies and DMCs</a></p>
+        <p>The approved programme, every car and driver, and the day as it happens, on one board.</p>
       </article>
     </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="split">
-      <h2>Every car, on one board.</h2>
-      <p class="lede">Transport is where a client event is won or lost. Every vehicle and driver sits on one timeline for the day, with each transfer, the time it takes, and the overlaps before they happen.</p>
-    </div>
-    {{inc:board}}
   </div>
 </section>
 
 <section class="band invert">
   <div class="wrap split">
-    <div class="stack">
-      <h2>Guest names stay with the maison.</h2>
-      <p class="lede">A client list is a maison's most private asset. Ellie is built so that the people who do not need a name never see one.</p>
-      <p><a class="lnk" href="{{root}}security/">Read the security file</a></p>
+    <h2>Built with the people who run the events.</h2>
+    <div class="copy">
+      <p>Ellie is being shaped on the ground with its first agency, event by event. We take on a few maisons and agencies at a time.</p>
     </div>
-    {{inc:facts}}
   </div>
 </section>
 
-<section class="band">
-  <div class="wrap split mid">
-    <figure class="fig wide">{{img:dinner-table|A long dinner table set with candles and orchids in a residence with deep blue walls|(max-width: 900px) 100vw, 50vw}}</figure>
+<section class="band" id="contact">
+  <div class="wrap split">
     <div class="stack">
-      <h2>Start with one event.</h2>
-      <p class="lede">We set Ellie up with your team before a real client event, stay on site for the first day, and compare the event with how you work today.</p>
-      <div class="ctas"><a class="btn primary" href="{{root}}contact/">Bring us one real programme</a><a class="lnk" href="{{root}}pilot/">How a pilot works</a></div>
+      <h2>Request an introduction.</h2>
+      <p class="lede">Tell us about your next client event: the city, the month and roughly how many guests.</p>
     </div>
+    <form id="form" novalidate>
+      <div class="fld"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="fld"><label for="f-org">Maison or agency</label><input id="f-org" name="org" autocomplete="organization" required></div>
+      <div class="fld"><label for="f-mail">Work email</label><input id="f-mail" name="mail" type="email" autocomplete="email" required></div>
+      <div class="fld"><label for="f-side">You are</label><span class="sel"><select id="f-side" name="side"><option>A maison</option><option>An agency or DMC</option><option>Something else</option></select></span></div>
+      <div class="fld full"><label for="f-msg">Your next event (optional)</label><textarea id="f-msg" name="msg" placeholder="City, month, number of guests"></textarea></div>
+      <div class="form-end"><button class="btn primary" type="submit">Send the request</button></div>
+    </form>
   </div>
 </section>

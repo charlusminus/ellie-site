@@ -6,17 +6,17 @@ Every page carries `noindex` until the site moves to its own domain.
 
 ## What lives where
 
+For now the public site is **a single landing page** (decision of 15/11/2026, after Alex: not too much information
+before the product is co-designed with the first agency), plus a legal notice and a 404 page.
+
 | Address | What it is | Source |
 |---|---|---|
-| `/` | Website, home | `_src/pages/index.html` |
-| `/maisons/` | For maisons | `_src/pages/maisons.html` |
-| `/agencies/` | For agencies and DMCs | `_src/pages/agencies.html` |
-| `/how-it-works/` | Create, orchestrate, analyse | `_src/pages/how.html` |
-| `/security/` | Privacy and security file | `_src/pages/security.html` |
-| `/pilot/` | Start with one event | `_src/pages/pilot.html` |
-| `/about/` | Behind Ellie | `_src/pages/about.html` |
-| `/contact/` | Request an introduction (form not connected yet) | `_src/pages/contact.html` |
+| `/` | Landing: positioning, one guest on two screens, maisons and agencies in a line each, contact form (not connected yet) | `_src/pages/index.html` |
 | `/legal/` | Legal notice and privacy of this site | `_src/pages/legal.html` |
+
+**The full site is ready in `_src/drafts/`** and not published: home (`index-full.html`), for maisons, for agencies
+and DMCs, how it works, privacy and security, pilot, about, contact. To publish a page again: move it to
+`_src/pages/`, add its entry to `NAV` in `_src/build.mjs`, run the build.
 
 The top strip of every page holds three tabs: Website, Demo, Onboarding. The demo and the onboarding tour live in
 their own repository, https://github.com/charlusminus/ellie-demo, published at https://charlusminus.github.io/ellie-demo/
