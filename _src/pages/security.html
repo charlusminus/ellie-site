@@ -1,0 +1,91 @@
+<!--
+path: security/
+nav: security
+title: Privacy and security
+description: How Ellie protects a maison's client list: who sees what, field-level encryption, two-factor sign-in, an assistant that works with codes, and what is still being written before launch.
+-->
+<section class="phead">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">Privacy and security</p>
+      <h1>Guest names stay with the maison.</h1>
+      <p class="lede">A client list is a maison's most private asset. This page sets out how Ellie protects it, as it stands today, and what is still being written before launch.</p>
+    </div>
+    <figure class="fig wide">{{img:discretion-folder|A closed navy leather folder tied with a gold ribbon on a marble table|(max-width: 900px) 100vw, 50vw|eager}}</figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="split">
+      <h2>Who sees what</h2>
+      <p class="lede">The maison owns the names. Everyone else works with a code that means nothing outside the event.</p>
+    </div>
+    <div class="tscroll" style="margin-top:2.6rem">
+      <table class="see">
+        <thead><tr><th scope="col"><span class="sr">Information</span></th><th scope="col">The maison</th><th scope="col">The agency</th><th scope="col">The assistant</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">The guest's name</th><td>Mrs Akiko Tanaka</td><td class="acc">JP-0005</td><td class="acc">JP-0005</td></tr>
+          <tr><th scope="row">Tier, flights, journey</th><td>Yes</td><td>Yes</td><td>Yes, under the code</td></tr>
+          <tr><th scope="row">Requests and dietary notes</th><td>Yes</td><td>Yes, to deliver them</td><td>Yes, without the name</td></tr>
+          <tr><th scope="row">Cars and drivers</th><td class="no">The transfer status only</td><td>Yes</td><td class="no">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:1.2rem;max-width:70ch">Drivers will see their own ride and nothing else: the driver app is being designed with our first agency.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <h2>How the file is protected</h2>
+    <dl class="facts">
+      <div><dt>Encrypted field by field</dt><dd>Each name, contact detail, passport number and preference is encrypted on its own (AES-256-GCM). Each organisation has its own data key, itself encrypted by a master key kept apart from the data.</dd></div>
+      <div><dt>Found without being exposed</dt><dd>Searching a guest by name uses keyed fingerprints of the name (blind indexes), so names are never stored in clear, even to be searched.</dd></div>
+      <div><dt>Nothing in the margins</dt><dd>No guest data in logs, in web addresses or in error messages.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <h2>Who can get in</h2>
+    <dl class="facts">
+      <div><dt>Two-factor sign-in</dt><dd>Required for every account, set up at the first sign-in with an authenticator app, with encrypted backup codes.</dd></div>
+      <div><dt>Passwords and sessions</dt><dd>Passwords hashed with Argon2id, sessions held in secure cookies that scripts cannot read, sign-in attempts limited.</dd></div>
+      <div><dt>Roles on two levels</dt><dd>The organisation (a maison or an agency), then the event: owner, manager or viewer. A viewer reads and changes nothing.</dd></div>
+      <div><dt>Every change recorded</dt><dd>An append-only record of who changed what, and when.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band invert">
+  <div class="wrap split">
+    <div class="stack">
+      <h2>The assistant works with codes</h2>
+      <p class="lede">Ask Ellie runs on Anthropic's Claude, through its API. Before any text leaves Ellie for the model, guest names are replaced by their codes.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Names replaced first</dt><dd>Names found in a question or in the event are replaced by guest codes before anything is sent. The masking is tested against deliberate attempts to get round it.</dd></div>
+      <div><dt>What it does receive</dt><dd>Codes, tiers, journeys, and notes such as dietary requirements, without names: the assistant cannot help with a dinner without them.</dd></div>
+      <div><dt>It proposes, a person decides</dt><dd>The assistant can only prepare a change. Nothing is written until someone with the right to make that change confirms it.</dd></div>
+      <div><dt>A spending limit</dt><dd>Each organisation has a monthly limit on assistant use.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="stack">
+      <h2>Still being written</h2>
+      <p class="lede">Ellie is in pilot. These points will be settled and published here before launch; until then, ask us.</p>
+      <div class="ctas"><a class="btn primary" href="{{root}}contact/">Ask about security</a></div>
+    </div>
+    <ul class="plain">
+      <li>Hosting: Ellie runs on Amazon Web Services. The region where the data lives <span class="tbc">to confirm</span>.</li>
+      <li>How long event data is kept, and how it is deleted after an event <span class="tbc">to write</span>.</li>
+      <li>The list of sub-processors (hosting, email delivery, the language model) and the agreements with each <span class="tbc">to publish</span>.</li>
+      <li>An independent security review <span class="tbc">to plan</span>.</li>
+    </ul>
+  </div>
+</section>

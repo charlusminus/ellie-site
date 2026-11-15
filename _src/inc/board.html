@@ -1,0 +1,17 @@
+<div class="board" aria-label="The fleet for one day">
+  <div class="top">
+    <span class="kicker">Fleet, Thursday 12 March</span>
+    <div class="free">
+      <span>Who is free at</span>
+      <span class="stepper">
+        <button type="button" id="tMinus" aria-label="Thirty minutes earlier">&minus;</button>
+        <b id="tVal" aria-live="polite">17:00</b>
+        <button type="button" id="tPlus" aria-label="Thirty minutes later">+</button>
+      </span>
+      <span class="res" id="tRes"></span>
+    </div>
+  </div>
+  <div class="gscroll"><div class="gantt" id="gantt"></div></div>
+  <div class="legend"><span><i></i>Transfer</span><span><i class="vip"></i>VVIP transfer</span><span><i class="none"></i>No car yet</span><span><i class="off"></i>Driver off duty</span></div>
+</div>
+<div class="split" style="margin-top:2.6rem"><span></span><div class="copy"><p>The pickup time follows the landing time, and any transfer can be moved by hand. Ellie warns you when a car is already on a transfer or has too few seats, before you choose it. Cars, drivers and their hours come from one spreadsheet, checked before anything changes.</p></div></div>

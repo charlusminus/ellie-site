@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For agencies and DMCs | Ellie</title>
+<meta name="description" content="Ellie for agencies and DMCs: the approved programme, every car and driver on one board, the day's checklists and control tower, and an assistant that proposes while your team decides.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/logo/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo/icon-180.png">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("ellie-site-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="strip">
+  <div class="wrap">
+    <nav class="xtabs" aria-label="Ellie">
+      <a href="../" aria-current="page">Website</a>
+      <a href="https://charlusminus.github.io/ellie-demo/?look=a">Demo</a>
+      <a href="https://charlusminus.github.io/ellie-demo/onboarding/">Onboarding</a>
+    </nav>
+    <button type="button" class="themebtn">Light theme</button>
+  </div>
+</div>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Ellie, home"><svg viewBox="0 0 1013 146" fill="currentColor" aria-hidden="true" focusable="false"><rect x="0" y="0" width="130.5" height="12.5"/><rect x="0" y="0" width="12.5" height="60"/><path d="M114.5 66H30A30 30 0 0 0 0 96V146H12.5V96A17.5 17.5 0 0 1 30 78.5H114.5Z"/><rect x="0" y="133.5" width="130.5" height="12.5"/><rect x="267" y="0" width="12.5" height="146"/><rect x="267" y="133.5" width="92.5" height="12.5"/><rect x="499" y="0" width="12.5" height="146"/><rect x="499" y="133.5" width="92" height="12.5"/><rect x="737.5" y="0" width="12.5" height="146"/><rect x="905" y="0" width="12.5" height="146"/><rect x="905" y="0" width="107.5" height="12.5"/><rect x="905" y="66" width="96.5" height="12.5"/><rect x="905" y="133.5" width="107.5" height="12.5"/></svg></a>
+    <button type="button" class="menubtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="../maisons/">Maisons</a>
+      <a href="../agencies/" aria-current="page">Agencies</a>
+      <a href="../how-it-works/">How it works</a>
+      <a href="../security/">Security</a>
+      <a href="../pilot/">Pilot</a>
+      <a href="../about/">About</a>
+      <a class="btn primary" href="../contact/">Request an introduction</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="phead">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">For agencies and DMCs</p>
+      <h1>Everything to deliver, on one board.</h1>
+      <p class="lede">The approved programme, every car and driver, the checklists and the day as it happens, with each guest under a code.</p>
+      <div class="ctas"><a class="btn primary" href="../contact/">Bring us one real programme</a><a class="lnk" href="https://charlusminus.github.io/ellie-demo/?look=a&amp;side=dmc">See a day at a DMC</a></div>
+    </div>
+    <figure class="fig wide"><img src="../assets/img/agency-desk-1264.webp" srcset="../assets/img/agency-desk-800.webp 800w, ../assets/img/agency-desk-1264.webp 1264w" sizes="(max-width: 900px) 100vw, 50vw" width="1264" height="848" alt="Hands on a printed schedule on a desk at night, a city behind the window" fetchpriority="high"></figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split mid">
+    <div class="copy"><h2>The brief, the day it is approved</h2><p>When the maison approves the programme, every guest's journey is ready to plan: arrivals and departures, transfers, rooms, dinners and visits, with each guest's requests. No retyping from an email, no version lost in a message thread.</p></div>
+    <figure class="fig wide"><img src="../assets/img/arrival-cars-1264.webp" srcset="../assets/img/arrival-cars-800.webp 800w, ../assets/img/arrival-cars-1264.webp 1264w" sizes="(max-width: 900px) 100vw, 50vw" width="1264" height="848" alt="Black cars and vans waiting under a terminal canopy at night on wet tarmac" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="split">
+      <h2>Every car, on one board.</h2>
+      <p class="lede">Every vehicle and driver on one timeline for the day. Choose a time and Ellie tells you which cars are free.</p>
+    </div>
+    <div class="board" aria-label="The fleet for one day">
+  <div class="top">
+    <span class="kicker">Fleet, Thursday 12 March</span>
+    <div class="free">
+      <span>Who is free at</span>
+      <span class="stepper">
+        <button type="button" id="tMinus" aria-label="Thirty minutes earlier">&minus;</button>
+        <b id="tVal" aria-live="polite">17:00</b>
+        <button type="button" id="tPlus" aria-label="Thirty minutes later">+</button>
+      </span>
+      <span class="res" id="tRes"></span>
+    </div>
+  </div>
+  <div class="gscroll"><div class="gantt" id="gantt"></div></div>
+  <div class="legend"><span><i></i>Transfer</span><span><i class="vip"></i>VVIP transfer</span><span><i class="none"></i>No car yet</span><span><i class="off"></i>Driver off duty</span></div>
+</div>
+<div class="split" style="margin-top:2.6rem"><span></span><div class="copy"><p>The pickup time follows the landing time, and any transfer can be moved by hand. Ellie warns you when a car is already on a transfer or has too few seats, before you choose it. Cars, drivers and their hours come from one spreadsheet, checked before anything changes.</p></div></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="copy"><h2>The day, on one screen</h2><p>Who lands, which car, what is blocked and why, problems first. The maison follows its guests on the same file and reads the same status at the same minute.</p></div>
+    <div class="ui" aria-label="The day's control tower">
+  <div class="bar"><span class="kicker">Thursday 12 March</span><span class="ctx">3 points need attention</span></div>
+  <div>
+    <div class="prow"><span class="tn">14:20</span><span><span class="code">JP-0005</span> lands, TG 623<span class="s">S-Class 1, Somchai</span></span><span class="st">On time</span></div>
+    <div class="prow"><span class="tn">15:00</span><span><span class="code">SG-0012</span> lands, SQ 708<span class="s">S-Class 2, Anan</span></span><span class="st alert">25 min late</span></div>
+    <div class="prow"><span class="tn">16:30</span><span>Suite check, <span class="code">JP-0005</span><span class="s">Still water, no lilies</span></span><span class="st">Done</span></div>
+    <div class="prow"><span class="tn">18:40</span><span><span class="code">HK-0031</span> lands, CX 705<span class="s">No car assigned yet</span></span><span class="st alert">No car</span></div>
+    <div class="prow"><span class="tn">19:30</span><span>Dinner at the residence<span class="s">Table plan waiting for the maison</span></span><span class="st alert">Blocked</span></div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="copy"><h2>Checklists for each day</h2><p>Tasks for each day and each service, with who does what and by when, shared with your team.</p></div>
+    <div class="ui" aria-label="The day's checklist">
+  <div class="bar"><span class="kicker">Checklist, Thursday</span><span class="ctx">Transport and hotel</span></div>
+  <div>
+    <div class="task done"><i></i><span class="t">Welcome cards in the cars for the 14:00 arrivals</span><span class="s">Ploy, done</span></div>
+    <div class="task done"><i></i><span class="t">Suite check for <span class="code">JP-0005</span>: still water, no lilies</span><span class="s">Ploy, done</span></div>
+    <div class="task"><i></i><span class="t">Meet and greet at arrivals for <span class="code">HK-0031</span></span><span class="s">Nok, 18:20</span></div>
+    <div class="task"><i></i><span class="t">Confirm the Sprinter for the dinner, 9 guests</span><span class="s">Arun, 18:30</span></div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="copy"><h2>Ask about the day. Your team decides.</h2><p>Ask in plain words: who lands after six, which transfers are still open, what is blocked and why. Ellie answers from the file and can propose a change. Nothing is written until someone on your team confirms it.</p></div>
+    <div class="ui" aria-label="A question to the assistant, agency side">
+  <div class="bar"><span class="kicker">Ask Ellie</span><span class="ctx">Agency side</span></div>
+  <p class="ask-q">Which VVIP guests land after 18:00 today?</p>
+  <div>
+    <div class="prow"><span class="tn">18:40</span><span><span class="code">HK-0031</span> lands, CX 705<span class="s">No car yet</span></span><span class="st alert">No car</span></div>
+    <div class="prow"><span class="tn">21:10</span><span><span class="code">KR-0003</span> lands, KE 651<span class="s">Alphard 1, Niran</span></span><span class="st">Car assigned</span></div>
+  </div>
+  <p class="msg">Two guests. Dinner at the residence is still blocked: the table plan is waiting for the maison.</p>
+  <div class="prop">
+    <span>Proposed: move the welcome drink for <span class="code">HK-0031</span> from 19:00 to 20:00.</span>
+    <div class="acts"><button type="button" class="tbtn strong" data-noop>Confirm</button><button type="button" class="tbtn" data-noop>Edit</button><span class="s">Nothing changes until someone confirms.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Read on</h2>
+    <div class="next">
+      <a href="../how-it-works/"><b>How it works</b><span>Create, orchestrate, analyse: an event from the first list to the last car.</span></a>
+      <a href="https://charlusminus.github.io/ellie-demo/onboarding/"><b>The onboarding tour</b><span>An agency account to click through, with a guided first visit.</span></a>
+      <a href="../pilot/"><b>Start with one event</b><span>How a pilot runs with your team, and what we measure.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="cols">
+      <div class="col"><span class="lockup" role="img" aria-label="Ellie Experience, orchestrate the invisible"></span><span class="muted">Ellie looks after your team, so your team can look after the guests.</span></div>
+      <div class="col"><b>Ellie</b><a href="../maisons/">For maisons</a><a href="../agencies/">For agencies and DMCs</a><a href="../how-it-works/">How it works</a><a href="../pilot/">Pilot</a></div>
+      <div class="col"><b>Trust</b><a href="../security/">Privacy and security</a><a href="../about/">About</a><a href="../legal/">Legal notice</a></div>
+      <div class="col"><b>See Ellie</b><a href="https://charlusminus.github.io/ellie-demo/?look=a">Interactive demo</a><a href="https://charlusminus.github.io/ellie-demo/onboarding/">Onboarding tour</a><a href="../contact/">Request an introduction</a></div>
+    </div>
+    <div class="fine"><span>Ellie Experience, by Strand64, Singapore.</span><span>Guests, cars and figures shown on this site are fictional.</span></div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

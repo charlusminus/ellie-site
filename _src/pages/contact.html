@@ -1,0 +1,24 @@
+<!--
+path: contact/
+nav: contact
+title: Request an introduction
+description: Tell us about your next client event.
+-->
+<section class="phead">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">Contact</p>
+      <h1>Request an introduction.</h1>
+      <p class="lede">Tell us about your next client event: the city, the month and roughly how many guests.</p>
+      <p class="muted">We work with a few maisons and agencies at a time. We will tell you plainly whether a pilot makes sense for your event.</p>
+    </div>
+    <form id="form" novalidate>
+      <div class="fld"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="fld"><label for="f-org">Maison or agency</label><input id="f-org" name="org" autocomplete="organization" required></div>
+      <div class="fld"><label for="f-mail">Work email</label><input id="f-mail" name="mail" type="email" autocomplete="email" required></div>
+      <div class="fld"><label for="f-side">You are</label><span class="sel"><select id="f-side" name="side"><option>A maison</option><option>An agency or DMC</option><option>Something else</option></select></span></div>
+      <div class="fld full"><label for="f-msg">Your next event (optional)</label><textarea id="f-msg" name="msg" placeholder="City, month, number of guests"></textarea></div>
+      <div class="form-end"><button class="btn primary" type="submit">Send the request</button></div>
+    </form>
+  </div>
+</section>
