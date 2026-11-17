@@ -7,7 +7,7 @@ Every page carries `noindex` until the site moves to its own domain.
 ## What lives where
 
 The public site is **one landing page**, a visiting card rather than a sales page (17/11/2026, after the kick-off and
-the luxury codes validated the same day), plus a legal notice and a 404 page. It links to nothing but itself and one e-mail address.
+the luxury codes validated the same day), plus a legal notice and a 404 page. It links to nothing but itself, one e-mail address and the application ("Sign in", top right, https://app.ellieexperience.com/, `APP` in `_src/build.mjs`).
 
 | Address | What it is | Source |
 |---|---|---|

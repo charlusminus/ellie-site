@@ -26,6 +26,8 @@ const OUT = join(SRC, "..");
 // The one way in. The address is not decided yet: leave it empty rather than invent one. While it is empty the
 // button opens an e-mail with no recipient, and the build says so.
 const CONTACT = "";
+// The Ellie application, reached from the top right corner of every page.
+const APP = "https://app.ellieexperience.com/";
 // The e-mail the button opens: a subject and the start of an introduction, for the visitor to complete.
 const SUBJECT = "An introduction to Ellie";
 const BODY = [
@@ -95,6 +97,7 @@ function layout(meta, body, root) {
 <script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.className="js"}catch(e){}</script>
 ${meta.head || ""}</head>
 <body class="${paper}">
+<a class="signin" href="${APP}">Sign in</a>
 ${top}<main id="main">
 ${body}
 </main>

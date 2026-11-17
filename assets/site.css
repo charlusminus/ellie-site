@@ -50,6 +50,14 @@ h1 em, h2 em, .line em { font-style: italic; }
   padding: 1.15rem 2.2rem; border: 1px solid var(--gold); transition: background-color .6s ease, color .6s ease; }
 .btn:hover { background: transparent; color: var(--gold); }
 
+/* ---------- the way into the application, top right of every page */
+body { position: relative; }
+.signin { position: absolute; z-index: 2; top: clamp(1.25rem, 3vh, 2rem); right: var(--gutter); background: var(--bg); color: var(--fg);
+  font-size: .875rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; line-height: 1.4;
+  padding: .7rem 1.1rem; border: 1px solid var(--rule); border-radius: 2px; transition: border-color .6s ease; }
+.signin:hover { border-color: var(--gold); }
+@media (prefers-reduced-motion: reduce) { .signin { transition: none; } }
+
 /* ---------- 1. the logotype, the signature, one sentence */
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 44%); min-height: 100vh; min-height: 100svh; }
 .hero-text { display: flex; flex-direction: column; justify-content: space-between; gap: 4rem; padding: clamp(2.5rem, 6vh, 4.5rem) var(--gutter); }
