@@ -50,9 +50,9 @@ h1 em, h2 em, .line em { font-style: italic; }
   padding: 1.15rem 2.2rem; border: 1px solid var(--gold); transition: background-color .6s ease, color .6s ease; }
 .btn:hover { background: transparent; color: var(--gold); }
 
-/* ---------- the way into the application, top right of every page */
+/* ---------- the way into the application, fixed top right of every page, on its own solid paper */
 body { position: relative; }
-.signin { position: absolute; z-index: 2; top: clamp(1.25rem, 3vh, 2rem); right: var(--gutter); background: var(--bg); color: var(--fg);
+.signin { position: fixed; z-index: 10; top: calc(env(safe-area-inset-top, 0px) + clamp(1rem, 3vh, 2rem)); right: max(var(--gutter), env(safe-area-inset-right, 0px)); background: var(--bg); color: var(--fg);
   font-size: .875rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; line-height: 1.4;
   padding: .7rem 1.1rem; border: 1px solid var(--rule); border-radius: 2px; transition: border-color .6s ease; }
 .signin:hover { border-color: var(--gold); }
