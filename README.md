@@ -11,7 +11,7 @@ the luxury codes validated the same day), plus a legal notice and a 404 page. It
 
 | Address | What it is | Source |
 |---|---|---|
-| `/` | Four moments: the logotype, the signature and one sentence; what the guest lives, in three lines; discretion; "Request an introduction", by invitation | `_src/pages/index.html` |
+| `/` | Three moments: the logotype, the signature and one sentence; what the guest lives, in three lines; "Let us meet" and "Request an introduction", by invitation. The rest is kept for a meeting in person (Alex, 17/11) | `_src/pages/index.html` |
 | `/legal/` | Legal notice and privacy of this site | `_src/pages/legal.html` |
 
 The detailed pages of the first site wait in `_src/drafts/`, with their own styles and script in
@@ -43,6 +43,5 @@ demo lives in its own repository and is no longer linked from the site.
 
 ## To settle before a public launch
 
-The contact address (`CONTACT`). The sentence "Once the event is over, it is deleted": data retention after an event
-is not confirmed in the product yet. On the legal page, marked "to confirm": the legal entity and its address. Also
+The contact address (`CONTACT`). On the legal page, marked "to confirm": the legal entity and its address. Also
 the move to the Ellie domain (then remove `noindex`).

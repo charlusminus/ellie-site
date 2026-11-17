@@ -31,7 +31,7 @@ const SUBJECT = "An introduction to Ellie";
 const BODY = [
   "Good day,",
   "",
-  "I would welcome an introduction to Ellie.",
+  "I would welcome the opportunity to meet and hear more about Ellie.",
   "",
   "My name is [your name], with [maison or agency], in [city].",
   "Our next client event: [city, month, number of guests].",
