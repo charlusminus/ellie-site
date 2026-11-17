@@ -7,7 +7,7 @@ Every page carries `noindex` until the site moves to its own domain.
 ## What lives where
 
 The public site is **one landing page**, a visiting card rather than a sales page (17/11/2026, after the kick-off and
-the proposed luxury codes), plus a legal notice and a 404 page. It links to nothing but itself and one e-mail address.
+the luxury codes validated the same day), plus a legal notice and a 404 page. It links to nothing but itself and one e-mail address.
 
 | Address | What it is | Source |
 |---|---|---|
@@ -45,4 +45,4 @@ demo lives in its own repository and is no longer linked from the site.
 
 The contact address (`CONTACT`). The sentence "Once the event is over, it is deleted": data retention after an event
 is not confirmed in the product yet. On the legal page, marked "to confirm": the legal entity and its address. Also
-the move to the Ellie domain (then remove `noindex`), and the luxury codes themselves, still a proposal.
+the move to the Ellie domain (then remove `noindex`).
