@@ -26,6 +26,20 @@ const OUT = join(SRC, "..");
 // The one way in. The address is not decided yet: leave it empty rather than invent one. While it is empty the
 // button opens an e-mail with no recipient, and the build says so.
 const CONTACT = "";
+// The e-mail the button opens: a subject and the start of an introduction, for the visitor to complete.
+const SUBJECT = "An introduction to Ellie";
+const BODY = [
+  "Good day,",
+  "",
+  "I would welcome an introduction to Ellie.",
+  "",
+  "My name is [your name], with [maison or agency], in [city].",
+  "Our next client event: [city, month, number of guests].",
+  "",
+  "With kind regards,",
+  "",
+].join("\r\n");
+const MAILTO = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(SUBJECT) + "&amp;body=" + encodeURIComponent(BODY);
 const manifest = JSON.parse(readFileSync(join(OUT, "assets/img/manifest.json"), "utf8"));
 
 // The detailed pages of the first site wait in _src/drafts/ with their own styles (_src/drafts/assets/). They are not
@@ -49,7 +63,7 @@ function expand(text, root, depth = 0) {
   return text
     .replace(/\{\{inc:([a-z0-9-]+)\}\}/g, (_, n) => expand(readFileSync(join(SRC, "inc", n + ".html"), "utf8").trim(), root, depth + 1))
     .replace(/\{\{img:([^}]+)\}\}/g, (_, spec) => img(spec, root))
-    .replace(/\{\{contact\}\}/g, "mailto:" + CONTACT + "?subject=An%20introduction")
+    .replace(/\{\{contact\}\}/g, MAILTO)
     .replace(/\{\{logo\}\}/g, LOGO)
     .replace(/\{\{root\}\}/g, root);
 }
