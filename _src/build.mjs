@@ -1,5 +1,5 @@
 // Builds the Ellie website from _src/ into the repository root (GitHub Pages serves main, root folder).
-// The demo and the onboarding tour live in their own repository, charlusminus/ellie-demo, linked by full address.
+// One landing page, a legal notice and a 404. The site links to nothing but itself and one e-mail address.
 // No dependencies: `node _src/build.mjs`. GitHub Pages runs Jekyll, which ignores folders starting with "_",
 // so _src/ is never published.
 //
@@ -9,10 +9,12 @@
 //   nav: maisons            which main navigation item is current
 //   title: For maisons      tab title, " | Ellie" is added (except the home page)
 //   description: ...        meta description
+//   paper: night | paper    the paper of the page body (night blue by default, ivory to read)
 //   -->
 // In a page or an include:
 //   {{root}}                         relative path to the site root ("" or "../"), so the site works under any sub-path
-//   {{demo}}                         full address of the demo (the onboarding tour is {{demo}}onboarding/)
+//   {{contact}}                      the "Request an introduction" address, as a mailto link (see CONTACT below)
+//   {{logo}}                         the Ellie wordmark, inline, in the current text colour
 //   {{inc:name}}                     _src/inc/name.html
 //   {{img:name|alt|sizes|eager}}     a responsive picture from assets/img (see assets/img/manifest.json)
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
@@ -21,16 +23,13 @@ import { fileURLToPath } from "node:url";
 
 const SRC = dirname(fileURLToPath(import.meta.url));
 const OUT = join(SRC, "..");
-const DEMO = "https://charlusminus.github.io/ellie-demo/";
+// The one way in. The address is not decided yet: leave it empty rather than invent one. While it is empty the
+// button opens an e-mail with no recipient, and the build says so.
+const CONTACT = "";
 const manifest = JSON.parse(readFileSync(join(OUT, "assets/img/manifest.json"), "utf8"));
 
-// For now the public site is a single landing page (decision of 15/11/2026: not too much information before the
-// product is co-designed with the first agency). The detailed pages wait in _src/drafts/: to publish one again, move it
-// to _src/pages/ and add its entry here, e.g. ["maisons", "maisons/", "Maisons"], ["agencies", "agencies/", "Agencies"],
-// ["how", "how-it-works/", "How it works"], ["security", "security/", "Security"], ["pilot", "pilot/", "Pilot"],
-// ["about", "about/", "About"]. With no entry, the header shows only the logo and the call to action.
-const NAV = [];
-
+// The detailed pages of the first site wait in _src/drafts/ with their own styles (_src/drafts/assets/). They are not
+// built and not linked.
 const LOGO = '<svg viewBox="0 0 1013 146" fill="currentColor" aria-hidden="true" focusable="false"><rect x="0" y="0" width="130.5" height="12.5"/><rect x="0" y="0" width="12.5" height="60"/><path d="M114.5 66H30A30 30 0 0 0 0 96V146H12.5V96A17.5 17.5 0 0 1 30 78.5H114.5Z"/><rect x="0" y="133.5" width="130.5" height="12.5"/><rect x="267" y="0" width="12.5" height="146"/><rect x="267" y="133.5" width="92.5" height="12.5"/><rect x="499" y="0" width="12.5" height="146"/><rect x="499" y="133.5" width="92" height="12.5"/><rect x="737.5" y="0" width="12.5" height="146"/><rect x="905" y="0" width="12.5" height="146"/><rect x="905" y="0" width="107.5" height="12.5"/><rect x="905" y="66" width="96.5" height="12.5"/><rect x="905" y="133.5" width="107.5" height="12.5"/></svg>';
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -50,65 +49,44 @@ function expand(text, root, depth = 0) {
   return text
     .replace(/\{\{inc:([a-z0-9-]+)\}\}/g, (_, n) => expand(readFileSync(join(SRC, "inc", n + ".html"), "utf8").trim(), root, depth + 1))
     .replace(/\{\{img:([^}]+)\}\}/g, (_, spec) => img(spec, root))
-    .replace(/\{\{demo\}\}/g, DEMO)
+    .replace(/\{\{contact\}\}/g, "mailto:" + CONTACT + "?subject=An%20introduction")
+    .replace(/\{\{logo\}\}/g, LOGO)
     .replace(/\{\{root\}\}/g, root);
 }
 
 function layout(meta, body, root) {
-  const title = meta.nav === "home" ? "Ellie" : `${meta.title} | Ellie`;
-  const nav = NAV.map(([key, href, label]) =>
-    `<a href="${root}${href}"${meta.nav === key ? ' aria-current="page"' : ""}>${label}</a>`).join("\n      ");
+  const home = meta.nav === "home";
+  const title = home ? "Ellie Experience" : `${meta.title} | Ellie`;
+  const paper = meta.paper || "night";
+  // The landing page opens on the logotype itself; the two plain pages carry it as a way back.
+  const top = home ? "" : `<header class="top">
+  <a href="${root}" aria-label="Ellie, back to the page">${LOGO}</a>
+</header>
+`;
   return `<!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(meta.description || "")}">
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#051022">
+<link rel="preload" href="${root}assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${root}assets/fonts/mulish-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${root}assets/site.css">
 <link rel="icon" href="${root}assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${root}assets/logo/icon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="${root}assets/logo/icon-180.png">
-<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("ellie-site-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.className="js"}catch(e){}</script>
 ${meta.head || ""}</head>
-<body>
-<div class="strip">
-  <div class="wrap">
-    <nav class="xtabs" aria-label="Ellie">
-      <a href="${root}" aria-current="page">Website</a>
-      <a href="{{demo}}?look=a">Demo</a>
-      <a href="{{demo}}onboarding/">Onboarding</a>
-    </nav>
-    <button type="button" class="themebtn">Light theme</button>
-  </div>
-</div>
-<header class="hdr">
-  <div class="wrap">
-    <a class="brand" href="${root}" aria-label="Ellie, home">${LOGO}</a>
-    ${NAV.length ? '<button type="button" class="menubtn" aria-expanded="false" aria-controls="nav">Menu</button>' : ""}
-    <nav class="nav${NAV.length ? "" : " solo"}" id="nav" aria-label="Main">
-      ${nav}
-      <a class="btn primary" href="${root}#contact">Request an introduction</a>
-    </nav>
-  </div>
-</header>
-<main id="main">
+<body class="${paper}">
+${top}<main id="main">
 ${body}
 </main>
-<footer class="ftr">
-  <div class="wrap">
-    <div class="cols">
-      <div class="col"><span class="lockup" role="img" aria-label="Ellie Experience, orchestrate the invisible"></span><span class="muted">Ellie looks after your team, so your team can look after the guests.</span></div>
-      <div class="col"><b>See Ellie</b><a href="{{demo}}?look=a">Interactive demo</a><a href="{{demo}}onboarding/">Onboarding tour</a></div>
-      <div class="col"><b>Contact</b><a href="${root}#contact">Request an introduction</a></div>
-      <div class="col"><b>Legal</b><a href="${root}legal/">Legal notice</a></div>
-    </div>
-    <div class="fine"><span>Ellie Experience, by Strand64, Singapore.</span><span>Guests, cars and figures shown on this site are fictional.</span></div>
-  </div>
+<footer class="ftr night">
+  <span class="over">Ellie · Orchestrate the invisible</span>
+  <span class="ftr-end"><span>Ellie Experience, by Strand64, Singapore</span>${meta.nav === "legal" ? "" : `<a href="${root}legal/">Legal notice</a>`}</span>
 </footer>
 <script src="${root}assets/site.js" defer></script>
 </body>
@@ -142,3 +120,4 @@ for (const file of readdirSync(join(SRC, "pages")).filter((f) => f.endsWith(".ht
   count++;
 }
 console.log(count + " pages written");
+if (!CONTACT) console.warn("Contact address not set (CONTACT in _src/build.mjs): the introduction button has no recipient.");
