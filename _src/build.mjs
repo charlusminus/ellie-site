@@ -86,7 +86,6 @@ function layout(meta, body, root) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(meta.description || "")}">
-<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#051022">
 <link rel="preload" href="${root}assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${root}assets/fonts/mulish-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -123,7 +122,8 @@ for (const file of readdirSync(join(SRC, "pages")).filter((f) => f.endsWith(".ht
   }
   meta.path = meta.path === undefined ? "" : meta.path;
   const depth = meta.path === "" ? 0 : meta.path.split("/").filter(Boolean).length;
-  const root = "../".repeat(depth);
+  // The 404 page is served at any missing address, at any depth: it reaches its files from the domain root.
+  const root = file === "404.html" ? "/" : "../".repeat(depth);
   let body = raw.slice(m[0].length);
   let head = "";
   body = body.replace(/<!--head\n([\s\S]*?)\n-->\n?/, (_, h) => { head = h + "\n"; return ""; });

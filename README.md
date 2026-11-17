@@ -1,8 +1,8 @@
 # Ellie, website
 
 To publish with GitHub Pages: Settings, Pages, deploy from the `main` branch, root folder. The site then lives at
-**https://charlusminus.github.io/ellie-site/**, until it moves to the Ellie domain.
-Every page carries `noindex` until the site moves to its own domain.
+**https://ellieexperience.com/** (the `CNAME` file; DNS at GoDaddy, records pointed on 17/11/2026). The application
+stays at https://app.ellieexperience.com/. Pages can be indexed.
 
 ## What lives where
 
@@ -43,5 +43,4 @@ demo lives in its own repository and is no longer linked from the site.
 
 ## To settle before a public launch
 
-The contact address (`CONTACT`). On the legal page, marked "to confirm": the legal entity and its address. Also
-the move to the Ellie domain (then remove `noindex`).
+The contact address (`CONTACT`). On the legal page, marked "to confirm": the legal entity and its address.
